@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Not found · Convoy</title>
-<meta name="description" content="That page is not here.">
-<link rel="canonical" href="https://convoy.korzengroup.com/">
+<title>Delete your account · Convoy</title>
+<meta name="description" content="Ask for your Convoy account and everything in it to be deleted, even if you can no longer sign in.">
+<link rel="canonical" href="https://convoy.korzengroup.com/delete/">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#F3F2F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src https://tmhditmqlunnebzullwt.supabase.co; base-uri 'none'; form-action 'none'">
+<script src="/delete.js" defer></script>
 <style>
 @font-face { font-family: Archivo; src: url(/archivo.woff) format('woff'); font-weight: 100 900; font-display: swap; }
 :root {
@@ -78,8 +80,33 @@ footer a { color: var(--muted); }
 <nav aria-label="Pages"><a href="/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
 </div></header>
 <main id="main" class="wrap">
-<h1>That page is not here</h1>
-<p class="intro">Try <a href="/">Support</a>, the <a href="/privacy/">privacy policy</a> or the <a href="/terms/">terms of use</a>.</p>
+<h1>Delete your account</h1>
+<p class="intro">Still signed in? Do it in the app: Settings → Account → Delete Account. It happens at once.</p>
+<p>Cannot sign in any more? Ask here. We email a six-digit code to the recovery email on the account; enter it below, and the account and everything in it is deleted within 30 days.</p>
+<form class="form" id="ask" novalidate>
+<label for="who">Your Convoy username, or the recovery email on the account</label>
+<input id="who" name="identifier" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="200" required>
+<button class="button" type="submit" id="ask-send">Email me a code</button>
+<p class="note" id="ask-note" role="status"></p>
+</form>
+<form class="form" id="confirm" novalidate hidden>
+<p id="confirm-note"></p>
+<label for="code">The six-digit code</label>
+<input id="code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
+<button class="button" type="submit" id="confirm-send">Delete my account</button>
+<p class="error" id="confirm-error" role="alert"></p>
+<button class="linkish" type="button" id="restart">Start again</button>
+</form>
+<div class="form" id="done" hidden><p id="done-note" role="status"></p></div>
+<noscript><p>This form needs JavaScript. You can also write to <a href="mailto:convoyappsupport@gmail.com">convoyappsupport@gmail.com</a> from the recovery email on the account.</p></noscript>
+<section id="what-is-deleted">
+<h2>What is deleted</h2>
+<p>Your profile, your garage and its photos, your recorded runs, your posts and comments, your achievements, and the messages you sent, which go from the other person’s copy of the conversation too. Any run you hosted is deleted for everybody who was on it. Routes you drew are kept, with your name removed, so other people’s runs still have a line to follow. It cannot be undone.</p>
+</section>
+<section id="no-recovery-email">
+<h2>No recovery email on the account?</h2>
+<p>Then no code can reach you. Write to <a href="mailto:convoyappsupport@gmail.com">convoyappsupport@gmail.com</a> with your username, and we will delete the account once we can tell it is yours.</p>
+</section>
 </main>
 <footer><div class="wrap">
 <span>© 2026 Korzen LLC</span>
